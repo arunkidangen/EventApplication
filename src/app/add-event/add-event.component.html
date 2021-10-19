@@ -1,0 +1,43 @@
+
+
+<div *ngIf="item">
+   
+    <div class="container">
+        <div class="row">
+            <div class=" col-12 col-md-3 col-sm-12"></div>
+            <div class="col-12 col-md-6 col-sm-12 bg-secondary mt-3 border rounded  border-dark">
+                <h2 class="text-white text-center">Add event </h2>
+              
+                   <form (ngSubmit)='addEvent()' [formGroup]="addEventform">
+                        <div class="form-group mt-2">
+                            <input type="text" id="eventName" name="eventName" class="form-control"
+                                    placeholder="Enter Event Name" formControlName="eventName">
+                             <div class="text-warning" *ngIf="(this.addEventform.get('eventName')?.touched||this.addEventform.get('eventName')?.dirty)&&this.addEventform.get('eventName')?.errors"> Invalid Event Name</div>
+                        </div>   
+                        
+                        <div class="form-group mt-2">
+                            <input type="date" id="eventDate" name="eventDate" class="form-control"
+                                placeholder="Enter event date" formControlName="eventDate">
+                                <div class="text-warning" *ngIf="(this.addEventform.get('eventDate')?.touched||this.addEventform.get('eventDate')?.dirty)&&this.addEventform.get('eventDate')?.errors"> Invalid Date</div>
+
+                        </div>
+                        <div class="form-group mt-2">
+                            <textarea type="text" id="eventDescription" name="eventDescription" class="form-control"
+                                placeholder="Enter event description" formControlName="eventDescription"></textarea>
+                                
+                        </div>
+    
+                        <div class=" d-flex justify-content-around ">
+                            <button class=" mt-2 btn btn-success" type="submit">Add</button>
+                            <button class=" mt-2 btn btn-link text-white" (click)='cancel()'>Cancel</button>
+                        </div>
+                   </form>
+               
+            </div>
+            <div class="col-12 col-md-3 col-sm-12"></div>
+        </div>
+    
+    </div>
+
+</div>
+

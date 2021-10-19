@@ -1,0 +1,67 @@
+<div class="row bg-secondary  text-white">
+
+   <div class="col-3"></div>
+   <div class="col-6"><h2>Welcome <span style="color: goldenrod;">{{currentUserName | uppercase}} </span>to Event Management App</h2></div>
+   <div class="col-3"><a class=" mt-2 btn btn-secondary " style="float: right;" (click)="viewDashBoard()">Back to dashboard</a></div>
+</div>
+
+<div class="container">
+   
+    
+    
+    <div class="row">
+        <div class=" col-12 col-md-3 col-sm-12"></div>
+        <div class="col-12 col-md-6 col-sm-12 mt-3 ">
+            <div *ngIf="events;else emptyEvent">
+
+                <table class="table table-bordered text-center  table-hover border-secondary">
+                    <thead class="bg-secondary text-white">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Event Name</th>
+                            <th scope="col">Event Date</th>
+                            <th scope="col">Event Description</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="">
+                        <tr *ngFor='let data of events; index as i'>
+                            <th scope="row" data-editable="true">{{i+1}}</th>
+                            <th scope="row">{{data.eventName}}</th>
+                            <th scope="row">{{data.eventDate}}</th>
+                            <th scope="row">{{data.eventDescription}}</th>
+                            <th scope="row"><button id={{data._id}} class="btn btn-link" style="color:navy;"
+                                    (click)="edit($event)"><i class="fa fa-edit"></i></button></th>
+                            <th scope="row"><button id={{data._id}} class="btn btn-link" style="color:red;"
+                                    (click)="delete($event)"><i class="fa fa-trash-o"></i></button></th>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <ng-template #emptyEvent>
+               No  events found
+            </ng-template>
+
+
+        </div>
+        <div class="col-12 col-md-3 col-sm-12"></div>
+    </div>
+
+
+    <div class="row">
+        <div class=" col-12 col-md-3 col-sm-12"></div>
+        <div class="col-12 col-md-6 col-sm-12 mt-3 ">
+            <app-edit-event [eventId]="eventId" (updateSuccessHandler)=updateSuccessHandler($event)></app-edit-event>
+
+        </div>
+
+
+        <div class="col-12 col-md-3 col-sm-12"></div>
+    </div>
+
+</div>

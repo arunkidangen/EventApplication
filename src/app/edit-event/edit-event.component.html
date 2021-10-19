@@ -1,0 +1,27 @@
+<div *ngIf="eventId">
+    <div class="row">
+        <div class="  bg-secondary mt-3 border rounded  border-dark">
+            <h2 class="text-white text-center">Add event </h2>
+          
+                <input type="text" id="eventName" name="eventName" class="form-control"
+                        placeholder="Enter Event Name" [(ngModel)] ="eventName">
+                    
+                
+                <div class="form-group mt-2">
+                    <input type="date" id="eventDate" name="eventDate" class="form-control"
+                        placeholder="Enter event date" [(ngModel)] ="eventDate">
+                </div>
+                <div class="form-group mt-2">
+                    <textarea type="text" id="eventDescription" name="eventDescription" class="form-control"
+                        placeholder="Enter event description" [(ngModel)] ="eventDescription" ></textarea>
+                </div>
+
+                <div class=" d-flex justify-content-around ">
+                    <button class=" mt-2 btn btn-success" (click)="update()" >Update</button>
+                    <button class=" mt-2 btn btn-link text-white" (click)="cancel()">Cancel</button>
+                </div>
+           
+        </div>
+        
+    </div>
+</div>

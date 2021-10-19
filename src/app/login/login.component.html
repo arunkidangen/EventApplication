@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class=" col-12 col-md-3 col-sm-12"></div>
+        <div class="col-12 col-md-6 col-sm-12 bg-secondary mt-3 border rounded  border-dark">
+            <h2 class="text-white text-center">Login</h2>
+            <form class=" m-2" [formGroup]='loginForm' (ngSubmit)='login()'>
+                <div class="form-group">
+                    <input type="text" id="loginUserId" name="loginUserId" class="form-control"
+                        placeholder="Enter User ID" formControlName="loginUserId">
+                    <div class="text-warning"
+                        *ngIf="(this.loginForm.get('loginUserId')?.touched||this.loginForm.get('loginUserId')?.dirty)&& this.loginForm.get('loginUserId')?.errors">
+                        Invalid Username</div>
+                </div>
+                <div class="form-group mt-2">
+                    <input type="password" id="loginPassword" name="loginPassword" class="form-control"
+                        placeholder="Enter password" formControlName="loginPassword">
+                    <div class="text-warning"
+                        *ngIf="(this.loginForm.get('loginPassword')?.touched||this.loginForm.get('loginPassword')?.dirty)&& this.loginForm.get('loginPassword')?.errors">
+                        Invalid Password</div>
+                </div>
+                <div class=" d-flex justify-content-around ">
+                    <button class=" mt-2 btn btn-success" type="submit">Login</button>
+                    <button class=" mt-2 btn btn-link text-white" routerLink='register'>Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-12 col-md-3 col-sm-12"></div>
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+<div class="row bg-secondary text-center text-white">
+    
+   <div class="col-3"></div>
+   <div class="col-6"><h2>Welcome <span style="color: goldenrod;">{{currentUserName | uppercase}} </span>to Event Management App</h2></div>
+   <div class="col-3"><a class=" mt-2 btn btn-secondary " style="float: right;" (click)="logOut()">Logout</a></div>
+
+</div>
+
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class=" mt-2 d-flex justify-content-around ">
+            <button class=" m-2 btn btn-secondary" (click)="addEventFromParent()" name="addEvent" id="addEvent" title="Add Event">Add event</button>
+            <button class=" m-2 btn btn-secondary"name="viewEvent" id="viewEvent" (click)=viewEvents() title="view Event">View events</button>
+        </div>
+        
+    </div>
+    <div class="col-4"></div>
+</div>
+<app-add-event [item]="currentUserId" (addEventSuccessHandler)="addEventSuccessHandler($event)" (onCancel)="cancel()" ></app-add-event>
+
+
+<div class="row mt-5">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div *ngIf="events">
+            <span *ngFor='let data of events; index as i'>
+            <div class="card text-white text-center" style="background-color:teal;">
+                <div class="card-body">
+                    <h5 class="">Events for the day</h5>
+                  <h5 class="card-title">{{data.eventName}}</h5>
+                  <h6 class="card-subtitle mb-2">{{data.eventDate}}</h6>
+                  <p class="card-text">{{data.eventDescription}}</p>
+                  
+                </div>
+              </div>
+            </span>
+            
+        </div>
+       </div>
+    <div class="col-4"></div>
+
+
+</div>

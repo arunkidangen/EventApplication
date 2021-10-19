@@ -1,0 +1,25 @@
+<div class="row">
+
+    <div class="col-4"></div>
+    <div class="col-4 bg-secondary mt-3 border rounded  border-dark">
+<h2 class="text-white text-center"> Register</h2>
+        <form (ngSubmit) ="register()" [formGroup]="registerFrom">
+            <div class="form-group mt-2">
+                <input type="text" id="registerUserName" name="registerUserName" class="form-control"
+                    placeholder="Enter username*" formControlName='registerUserName'>
+                <input type="text" id="registerPassword" name="registerPassword" class="form-control mt-2"
+                    placeholder="Enter password*" formControlName='registerPassword'>
+                <input type="text" id="registerUserId" name="registerUserId" class="form-control mt-2"
+                    placeholder="User Id*" formControlName='registerUserId'>
+    
+                    <div class=" d-flex justify-content-around ">
+                        <button class=" m-2 btn btn-success" type="submit">Register</button>
+                        <button class=" m-2 btn btn-link text-white" routerLink=''>Login</button>
+                    </div>
+            </div>
+        </form>
+
+        <div class="form-group"></div>
+    </div>
+    <div class="col-4"></div>
+</div>
